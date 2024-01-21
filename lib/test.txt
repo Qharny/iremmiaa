@@ -1,0 +1,2124 @@
+TODO
+allow the hostel name to reduce size when the name is much
+centre the HomePage
+let the swtch toggle
+
+// Legend configuration
+                  legendOptions: LegendOptions(
+                    showLegendsInRow: false,
+                    legendPosition: LegendPosition.right,
+                    showLegends: true,
+                    legendTextStyle: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                      color: Colors.black,
+                    ),
+                    legendShape: BoxShape.circle, // Change to your preferred shape
+                    legendPadding: 8, // Adjust padding as needed
+// Widget _buildCombinedChart() {
+  //   return Container(
+  //     height: 180,
+  //     child: LineChart(
+  //       LineChartData(
+  //         lineBarsData: [
+  //           LineChartBarData(
+  //             spots: [
+  //               FlSpot(0, statisticsData['number_of_tenants']?.toDouble() ?? 0),
+  //               FlSpot(1,
+  //                   statisticsData['number_rooms_occupied']?.toDouble() ?? 0),
+  //               FlSpot(
+  //                   2, statisticsData['total_bed_space_left']?.toDouble() ?? 0),
+  //             ],
+  //             isCurved: true,
+  //             belowBarData: BarAreaData(show: true),
+  //             color: const Color(0xFFF59B15),
+  //             dotData: const FlDotData(show: false),
+  //             isStrokeCapRound: true,
+  //             preventCurveOverShooting: true,
+  //             barWidth: 10,
+  //           ),
+  //         ],
+  //         titlesData: FlTitlesData(
+  //           leftTitles: const AxisTitles(
+  //             sideTitles: SideTitles(showTitles: true, reservedSize: 40),
+  //           ),
+  //           bottomTitles: AxisTitles(
+  //             sideTitles: SideTitles(
+  //               showTitles: true,
+  //               interval: 1,
+  //               reservedSize: 15,
+  //               getTitlesWidget: (double value, TitleMeta titleMeta) {
+  //                 return Text(
+  //                   '${_getBottomTitles(value.toInt())}',
+  //                   style: const TextStyle(
+  //                     fontSize: 13,
+  //                   ),
+  //                 );
+  //               },
+  //             ),
+  //           ),
+  //         ),
+  //         borderData: FlBorderData(
+  //           show: true,
+  //           border: const Border(
+  //             left: BorderSide(width: 1.0),
+  //             bottom: BorderSide(width: 1.0),
+  //           ),
+  //         ),
+  //       ),
+  //     ),
+  //   );
+  // }
+
+  LineChartBarData _buildVerticalLine(String title, double x, double value) {
+    return LineChartBarData(
+      spots: [
+        FlSpot(x, 0),
+        FlSpot(x, value),
+      ],
+      isCurved: true,
+      belowBarData: BarAreaData(show: true),
+      color: const Color(0xFFF59B15),
+      dotData: const FlDotData(show: false),
+      isStrokeCapRound: true,
+      preventCurveOverShooting: true,
+      barWidth: 10,
+    );
+  }
+enabledBorder: const UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color(0xFFF59B15),
+                                ),
+                              ),
+PROFILE BUTTON
+_buildButton(
+                    'Report an issue or bug', Icons.bug_report_rounded),
+AlertDialog(
+              title: const Text('Verification Successful'),
+              content: Column(
+                // crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Image.asset(
+                    'assets/Success.gif',
+                    width: 90,
+                    height: 90,
+                  ),
+                  // Text('Hostel: ${data['hostel_name']}'),
+                  // Text('Room Number: ${data['room_number']}'),
+                  // Text('Name: ${data['tenant_name']}'),
+                  // Text('ID: ${data['student_id']}'),
+                  // Text('Stat: ${data['checked_in_status']}'),
+                ],
+              ),
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    setState(() {
+                      // isVerificationDialogShown = false;
+                    });
+                    Navigator.of(context).pop();
+                  },
+                  child: const Text('Close'),
+                ),
+              ],
+            ),
+
+
+      QR Page
+
+      appBar: AppBar(
+        shadowColor: Colors.white,
+        backgroundColor: Colors.white,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Color(0xFFF59B15)),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
+        title: const Text(
+          'Scan QR',
+          style: TextStyle(
+            fontWeight: FontWeight.w600,
+            color: Color(0xFFF59B15),
+            fontSize: 20,
+          ),
+        ),
+        actions: [
+          1
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
+            child: IconButton(
+              icon: const Icon(Icons.flash_on,
+                  color: Color(0xFFF59B15), size: 30),
+              onPressed: () {},
+            ),
+          ),
+          2
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
+            child: IconButton(
+              icon: const Icon(Icons.flash_on,
+                  color: Color(0xFFF59B15), size: 30),
+              onPressed: () {},
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
+            child: IconButton(
+              icon: const Icon(Icons.switch_camera,
+                  color: Color(0xFFF59B15), size: 30),
+              onPressed: () {
+                // Add an action to navigate to the profile page here.
+              },
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
+            child: IconButton(
+              icon: const Icon(Icons.account_circle,
+                  color: Color(0xFFF59B15), size: 35),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ProfilePage(),
+                  ),
+                );
+              },
+            ),
+          ),
+        ],
+      ),      
+
+
+      full code
+      // ignore_for_file: library_private_types_in_public_api
+
+import 'package:flutter/material.dart';
+import 'package:qr_code_scanner/qr_code_scanner.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
+import 'package:rebook/profile_page.dart';
+
+class VerifyTenantsPage extends StatefulWidget {
+  final String accessToken;
+
+  const VerifyTenantsPage({super.key, required this.accessToken});
+
+  @override
+  _VerifyTenantsPageState createState() => _VerifyTenantsPageState();
+}
+
+class _VerifyTenantsPageState extends State<VerifyTenantsPage> {
+  final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
+  QRViewController? controller;
+  String? result;
+  bool isVerificationDialogShown = false;
+
+  @override
+  void reassemble() {
+    super.reassemble();
+    if (controller != null) {
+      controller!.resumeCamera();
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        shadowColor: Colors.white,
+        backgroundColor: Colors.white,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Color(0xFFF59B15)),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
+        title: const Text(
+          'Scan QR',
+          style: TextStyle(
+            fontWeight: FontWeight.w600,
+            color: Color(0xFFF59B15),
+            fontSize: 20,
+          ),
+        ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
+            child: IconButton(
+              icon: const Icon(Icons.flash_on,
+                  color: Color(0xFFF59B15), size: 30),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ProfilePage(),
+                  ),
+                );
+              },
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
+            child: IconButton(
+              icon: const Icon(Icons.switch_camera,
+                  color: Color(0xFFF59B15), size: 30),
+              onPressed: () {
+                // Add an action to navigate to the profile page here.
+              },
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
+            child: IconButton(
+              icon: const Icon(Icons.account_circle,
+                  color: Color(0xFFF59B15), size: 35),
+              onPressed: () {
+                // Add an action to navigate to the profile page here.
+              },
+            ),
+          ),
+        ],
+      ),
+      body: Column(
+        children: <Widget>[
+          Expanded(
+            flex: 5,
+            child: QRView(
+              key: qrKey,
+              onQRViewCreated: _onQRViewCreated,
+            ),
+          ),
+          Expanded(
+            flex: 1,
+            child: Center(
+                child: isVerificationDialogShown
+                    ? const CircularProgressIndicator()
+                    : const Text(
+                        "Move camera to scan and verify tenant",
+                        style: TextStyle(fontSize: 16),
+                      )
+                // : Text(
+                //     'Result: \n $result',
+                //     style: TextStyle(fontSize: 16),
+                //   ),
+                ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    controller?.dispose();
+    super.dispose();
+  }
+
+  void _onQRViewCreated(QRViewController controller) {
+    this.controller = controller;
+    controller.scannedDataStream.listen((scanData) {
+      if (!isVerificationDialogShown) {
+        setState(() {
+          result = scanData.code;
+          isVerificationDialogShown = true;
+        });
+        verifyTenant(scanData.code);
+      }
+    });
+  }
+
+  Future<void> verifyTenant(String? qrCode) async {
+    if (qrCode == null) {
+      // Handle the case where the QR code is null (e.g., user canceled the scan).
+      return;
+    }
+
+    final apiUrl = Uri.parse(
+        'https://ethenatx.pythonanywhere.com/management/verify-tenant/');
+    final response = await http.post(
+      apiUrl,
+      headers: {
+        'Authorization': 'Bearer ${widget.accessToken}',
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode({'verification_code': qrCode}),
+    );
+
+    if (response.statusCode == 200) {
+      final data = json.decode(response.body);
+      showDialog(
+        context: context,
+        builder: (context) {
+          return Center(
+            child: SizedBox(
+              width: MediaQuery.of(context).size.width * 0.8,
+              child: AlertDialog(
+                title: const Text('Verification Successful'),
+                content: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Image.asset(
+                      'assets/Success.gif',
+                      width: 90,
+                      height: 90,
+                    ),
+                    SizedBox(height: 12), // Add space between image and text
+                    Text('Hostel: ${data['hostel_name']}'),
+                    Text('Room Number: ${data['room_number']}'),
+                    Text('Name: ${data['tenant_name']}'),
+                    Text('ID: ${data['student_id']}'),
+                    Text('Stat: ${data['checked_in_status']}'),
+                  ],
+                ),
+                contentPadding: EdgeInsets.all(16), // Adjust content padding
+                actions: [
+                  TextButton(
+                    onPressed: () {
+                      setState(() {
+                        isVerificationDialogShown = false;
+                      });
+                      Navigator.of(context).pop();
+                    },
+                    child: const Text('Close'),
+                  ),
+                ],
+              ),
+            ),
+          );
+        },
+      );
+    } else {
+      // Handle errors
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: const Text('Error'),
+            content: const Text('Failed to verify tenant. Please try again.'),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  setState(() {
+                    isVerificationDialogShown = false;
+                  });
+                  Navigator.of(context).pop();
+                },
+                child: const Text('Close'),
+              ),
+            ],
+          );
+        },
+      );
+    }
+  }
+}
+
+
+
+and
+
+
+
+// ignore_for_file: library_private_types_in_public_api
+
+import 'package:flutter/material.dart';
+import 'package:qr_code_scanner/qr_code_scanner.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
+import 'package:rebook/profile_page.dart';
+
+import '../Custom_classes/Frame_painter.dart';
+
+class VerifyTenantsPage extends StatefulWidget {
+  final String accessToken;
+
+  const VerifyTenantsPage({super.key, required this.accessToken});
+
+  @override
+  _VerifyTenantsPageState createState() => _VerifyTenantsPageState();
+}
+
+class _VerifyTenantsPageState extends State<VerifyTenantsPage> {
+  final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
+  QRViewController? controller;
+  String? result;
+  bool isVerificationDialogShown = false;
+
+  @override
+  void reassemble() {
+    super.reassemble();
+    if (controller != null) {
+      controller!.resumeCamera();
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        shadowColor: Colors.white,
+        backgroundColor: Colors.white,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Color(0xFFF59B15)),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
+        title: const Text(
+          'Scan QR',
+          style: TextStyle(
+            fontWeight: FontWeight.w600,
+            color: Color(0xFFF59B15),
+            fontSize: 20,
+          ),
+        ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
+            child: IconButton(
+              icon: const Icon(Icons.flash_on,
+                  color: Color(0xFFF59B15), size: 30),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ProfilePage(),
+                  ),
+                );
+              },
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
+            child: IconButton(
+              icon: const Icon(Icons.switch_camera,
+                  color: Color(0xFFF59B15), size: 30),
+              onPressed: () {
+                // Add an action to navigate to the profile page here.
+              },
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
+            child: IconButton(
+              icon: const Icon(Icons.account_circle,
+                  color: Color(0xFFF59B15), size: 35),
+              onPressed: () {
+                // Add an action to navigate to the profile page here.
+              },
+            ),
+          ),
+        ],
+      ),
+      body: Column(
+        children: <Widget>[
+          Expanded(
+            flex: 5,
+            child: CustomPaint(
+              painter: FramePainter(),
+              child: QRView(
+                key: qrKey,
+                onQRViewCreated: _onQRViewCreated,
+              ),
+            ),
+          ),
+          Expanded(
+            flex: 1,
+            child: Center(
+                child: isVerificationDialogShown
+                    ? const CircularProgressIndicator()
+                    : const Text(
+                        "Move camera to scan and verify tenant",
+                        style: TextStyle(fontSize: 16),
+                      )
+                // : Text(
+                //     'Result: \n $result',
+                //     style: TextStyle(fontSize: 16),
+                //   ),
+                ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    controller?.dispose();
+    super.dispose();
+  }
+
+  void _onQRViewCreated(QRViewController controller) {
+    this.controller = controller;
+    controller.scannedDataStream.listen((scanData) {
+      if (!isVerificationDialogShown) {
+        setState(() {
+          result = scanData.code;
+          isVerificationDialogShown = true;
+        });
+        verifyTenant(scanData.code);
+      }
+    });
+  }
+
+  Future<void> verifyTenant(String? qrCode) async {
+    if (qrCode == null) {
+      // Handle the case where the QR code is null (e.g., user canceled the scan).
+      return;
+    }
+
+    final apiUrl = Uri.parse(
+        'https://ethenatx.pythonanywhere.com/management/verify-tenant/');
+    final response = await http.post(
+      apiUrl,
+      headers: {
+        'Authorization': 'Bearer ${widget.accessToken}',
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode({'verification_code': qrCode}),
+    );
+
+    if (response.statusCode == 200) {
+      final data = json.decode(response.body);
+      showDialog(
+        context: context,
+        builder: (context) {
+          return Center(
+            child: SizedBox(
+              child: AlertDialog(
+                title: const Text('Verification Successful'),
+                content: Column(
+                  children: [
+                    Image.asset(
+                      'assets/Success.gif',
+                      width: 90,
+                      height: 90,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('Hostel: ${data['hostel_name']}'),
+                        Text('Room Number: ${data['room_number']}'),
+                        Text('Name: ${data['tenant_name']}'),
+                        Text('ID: ${data['student_id']}'),
+                        Text('Status: ${data['checked_in_status']}'),
+                      ],
+                    ),
+                  ],
+                ),
+                contentPadding: EdgeInsets.all(16), // Adjust content padding
+                actions: [
+                  TextButton(
+                    onPressed: () {
+                      setState(() {
+                        isVerificationDialogShown = false;
+                      });
+                      Navigator.of(context).pop();
+                    },
+                    child: const Text('Close'),
+                  ),
+                ],
+              ),
+            ),
+          );
+        },
+      );
+    } else {
+      // Handle errors
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: const Text('Error'),
+            content: const Text('Failed to verify tenant. Please try again.'),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  setState(() {
+                    isVerificationDialogShown = false;
+                  });
+                  Navigator.of(context).pop();
+                },
+                child: const Text('Close'),
+              ),
+            ],
+          );
+        },
+      );
+    }
+  }
+}
+
+Sign In Page:
+
+// ignore_for_file: use_build_context_synchronously, library_private_types_in_public_api
+
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
+import 'package:rebook/pages/home_page.dart';
+
+class AuthenticateSolo1Widget extends StatefulWidget {
+  const AuthenticateSolo1Widget({Key? key}) : super(key: key);
+
+  @override
+  _AuthenticateSolo1WidgetState createState() =>
+      _AuthenticateSolo1WidgetState();
+}
+
+class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
+    with TickerProviderStateMixin {
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final emailAddressLoginController = TextEditingController();
+  final passwordLoginController = TextEditingController();
+  bool passwordLoginVisibility = true;
+  bool isLoading = false;
+
+  String? accessToken;
+  String? refreshToken;
+
+  Future<void> logInAndGetTokens(String email, String password,
+      {bool isRefresh = false}) async {
+    final apiUrl = Uri.parse(
+        'https://ethenatx.pythonanywhere.com/management/obtain-token/');
+
+    try {
+      final response = await http.post(
+        apiUrl,
+        headers: {'Content-Type': 'application/json; charset=UTF-8'},
+        body: jsonEncode(
+          isRefresh
+              ? {'refresh': refreshToken}
+              : {'email': email, 'password': password},
+        ),
+      );
+
+      if (response.statusCode == 200) {
+        final jsonResponse = json.decode(response.body) as Map<String, dynamic>;
+        accessToken = jsonResponse['access'];
+        if (!isRefresh) {
+          refreshToken = jsonResponse['refresh'];
+        }
+      } else {
+        accessToken = null;
+        refreshToken = null;
+      }
+    } catch (e) {
+      accessToken = null;
+      refreshToken = null;
+    }
+  }
+
+  Future<void> handleLoginOrRefresh() async {
+    final email = emailAddressLoginController.text;
+    final password = passwordLoginController.text;
+
+    setState(() => isLoading = true);
+
+    await logInAndGetTokens(email, password);
+
+    if (accessToken != null) {
+      // Successful login, do something with the access token
+    } else {
+      showSnackBar('Login Failed. Please check your credentials.');
+    }
+
+    setState(() => isLoading = false);
+  }
+
+  Future<void> handleLogin() async {
+    await handleLoginOrRefresh();
+
+    if (accessToken != null) {
+      showSnackBar('Login Successful!');
+      navigateToHomePage();
+    } else {
+      showSnackBar('Login Failed. Please check your credentials.');
+    }
+  }
+
+  void showSnackBar(String message) {
+    ScaffoldMessenger.of(context)
+        .showSnackBar(SnackBar(content: Text(message)));
+  }
+
+  void navigateToHomePage() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+          builder: (context) => HomePage(accessToken: accessToken!)),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).unfocus(),
+      child: Scaffold(
+        key: scaffoldKey,
+        resizeToAvoidBottomInset: false,
+        body: Builder(
+          builder: (BuildContext context) {
+            return Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image:
+                      AssetImage('assets/marcus-loke-WQJvWU_HZFo-unsplash.jpg'),
+                ),
+              ),
+              child: Center(
+                child: Container(
+                  width: 290,
+                  height: 460,
+                  decoration: BoxDecoration(
+                    color: const Color(0x99000000),
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        const Padding(
+                          padding: EdgeInsets.only(bottom: 20.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "Guudnyt",
+                                style: TextStyle(
+                                  fontSize: 38,
+                                  fontWeight: FontWeight.w700,
+                                  color: Color(0xFFF59B15),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 20.0),
+                          child: TextFormField(
+                            controller: emailAddressLoginController,
+                            obscureText: false,
+                            inputFormatters: [
+                              LengthLimitingTextInputFormatter(50),
+                            ],
+                            decoration: const InputDecoration(
+                              labelText: 'Email Address',
+                              labelStyle: TextStyle(
+                                color: Color(0xffdedddb),
+                                fontSize: 18,
+                              ),
+                              enabledBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color(0xFFF59B15),
+                                ),
+                              ),
+                            ),
+                            style: const TextStyle(
+                              color: Color(0xffdedddb),
+                              fontSize: 18,
+                            ),
+                            maxLines: null,
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 12.0),
+                          child: TextFormField(
+                            controller: passwordLoginController,
+                            obscureText: passwordLoginVisibility,
+                            inputFormatters: [
+                              LengthLimitingTextInputFormatter(50),
+                            ],
+                            decoration: InputDecoration(
+                              labelText: 'Password',
+                              labelStyle: const TextStyle(
+                                color: Color(0xffdedddb),
+                                fontSize: 18,
+                              ),
+                              suffixIcon: InkWell(
+                                onTap: () {
+                                  setState(() {
+                                    passwordLoginVisibility =
+                                        !passwordLoginVisibility;
+                                  });
+                                },
+                                child: Icon(
+                                  passwordLoginVisibility
+                                      ? Icons.visibility_outlined
+                                      : Icons.visibility_off_outlined,
+                                  size: 20,
+                                  color: const Color(0xffdedddb),
+                                ),
+                              ),
+                              enabledBorder: const UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color(0xFFF59B15),
+                                ),
+                              ),
+                            ),
+                            style: const TextStyle(
+                              color: Color(0xffdedddb),
+                              fontSize: 18,
+                            ),
+                            maxLines: 1,
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 24.0),
+                          child: ElevatedButton(
+                            onPressed: handleLogin,
+                            style: ElevatedButton.styleFrom(
+                              fixedSize: const Size(230, 30),
+                            ),
+                            child: const Text(
+                              'Login',
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 20.0),
+                          child: TextButton(
+                            onPressed: () {
+                              // Navigate to the forgot password screen
+                            },
+                            child: const Text(
+                              'Forgot Password?',
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ),
+                        if (isLoading)
+                          const Center(
+                            child: CircularProgressIndicator(
+                              color: Color(0xFFF59B15),
+                            ),
+                          ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            );
+          },
+        ),
+      ),
+    );
+  }
+}
+
+
+testing image
+
+import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'dart:convert';
+
+class EditProfilePage extends StatefulWidget {
+  final String accessToken;
+
+  const EditProfilePage({Key? key, required this.accessToken})
+      : super(key: key);
+
+  @override
+  _EditProfilePageState createState() => _EditProfilePageState();
+}
+
+class _EditProfilePageState extends State<EditProfilePage> {
+  // Add these variables to store the image URLs
+  String? _profilePictureUrl;
+  String? _hostelImageUrl;
+
+  @override
+  void initState() {
+    super.initState();
+    fetchProfileData();
+  }
+
+  Future<void> fetchProfileData() async {
+    final url =
+        'https://ethenatx.pythonanywhere.com/management/management-profile/';
+
+    try {
+      final response = await http.get(
+        Uri.parse(url),
+        headers: {'Authorization': 'Bearer ${widget.accessToken}'},
+      );
+      print(response.statusCode);
+      if (response.statusCode == 200) {
+        final data = json.decode(response.body);
+        print(response.body);
+
+        setState(() {
+          const baseUrl = 'https://ethenatx.pythonanywhere.com';
+          _profilePictureUrl =
+              '$baseUrl${data['hostel_manager_profile_picture']}';
+          _hostelImageUrl = '$baseUrl${data['hostel_image']}';
+        });
+      } else {
+        throw Exception('Failed to load data');
+      }
+    } catch (e) {
+      print('Error fetching data: $e');
+      // Handle the error appropriately
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Edit Profile'),
+      ),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          children: [
+            // Add widgets to display the images
+            _profilePictureUrl != null
+                ? CircleAvatar(
+                    radius: 50,
+                    backgroundImage: NetworkImage(_profilePictureUrl!),
+                  )
+                : CircularProgressIndicator(),
+            SizedBox(height: 16),
+            _hostelImageUrl != null
+                ? Image.network(
+                    _hostelImageUrl!,
+                    height: 200,
+                    fit: BoxFit.cover,
+                  )
+                : CircularProgressIndicator(),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+another profile page
+import 'dart:convert';
+import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import '/pages/edit_profile_page.dart';
+
+class ProfilePage extends StatefulWidget {
+  final String accessToken;
+
+  const ProfilePage({Key? key, required this.accessToken}) : super(key: key);
+
+  @override
+  _ProfilePageState createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
+  String hostelName = '';
+  String managerName = '';
+  String managerProfilePicture = '';
+  String hostelImage = '';
+  int numberOfRooms = 0;
+  int numberOfTenants = 0;
+  int numberOfRoomsOccupied = 0;
+
+  // Add these variables to store the image URLs
+  String? _managerProfilePictureUrl;
+  String? _hostelImageUrl;
+
+  @override
+  void initState() {
+    super.initState();
+    fetchData();
+  }
+
+  Future<void> fetchData() async {
+    final url =
+        'https://ethenatx.pythonanywhere.com/management/management-profile/';
+
+    try {
+      final response = await http.get(
+        Uri.parse(url),
+        headers: {'Authorization': 'Bearer ${widget.accessToken}'},
+      );
+
+      if (response.statusCode == 200) {
+        final data = json.decode(response.body);
+
+        setState(() {
+          hostelName = data['hostel_name'] ?? '';
+          managerName = data['manager'] ?? '';
+          numberOfRooms = data['number_of_rooms'] ?? 0;
+          numberOfTenants = data['number_of_tenants'] ?? 0;
+          numberOfRoomsOccupied = data['number_rooms_occupied'] ?? 0;
+          const baseUrl = 'https://ethenatx.pythonanywhere.com';
+          _managerProfilePictureUrl =
+              '$baseUrl${data['hostel_manager_profile_picture']}';
+          _hostelImageUrl = '$baseUrl${data['hostel_image']}';
+        });
+      } else {
+        throw Exception('Failed to load data');
+      }
+    } catch (e) {
+      print('Error fetching data: $e');
+      // Handle the error appropriately
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            _buildHeader(),
+            _buildStats(),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => EditProfilePage(
+                      accessToken: widget.accessToken,
+                    ),
+                  ),
+                );
+              },
+              child: _buildButton('Edit Profile', Icons.edit),
+            ),
+            _buildButton('Scanned History', Icons.qr_code_scanner_rounded),
+            _buildButton('Statistics', Icons.insert_chart_outlined_outlined),
+            _buildButton('Report an issue or bug', Icons.bug_report_rounded),
+            _buildButton('Logout', Icons.logout, color: Colors.amber),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildHeader() {
+    return SizedBox(
+      height: 267,
+      child: Stack(
+        children: [
+          _buildBackgroundImage(),
+          _buildSwitch(),
+          _buildProfileImage(),
+          _buildUserInfo(),
+          _buildBackButton(),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildBackgroundImage() {
+    return Align(
+      alignment: const AlignmentDirectional(0.00, -1.00),
+      child: Container(
+        width: double.infinity,
+        height: 235,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Color(0xff000000), Color(0xffffffff)],
+            stops: [0, 1],
+            begin: AlignmentDirectional(0, -1),
+            end: AlignmentDirectional(0, 1),
+          ),
+        ),
+        child: Stack(
+          children: [
+            Opacity(
+              opacity: 0.3,
+              child: Container(
+                width: double.infinity,
+                height: double.infinity,
+                decoration: BoxDecoration(
+                  color: Colors.black,
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: NetworkImage(_hostelImageUrl ?? ''),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildSwitch() {
+    return Align(
+      alignment: const AlignmentDirectional(0.95, 1.09),
+      child: Switch.adaptive(
+        value: true,
+        onChanged: (newValue) {},
+        activeColor: const Color(0xFF959798),
+        activeTrackColor: const Color(0xFF959798),
+        inactiveTrackColor: Colors.white,
+        inactiveThumbColor: Colors.black,
+      ),
+    );
+  }
+
+  Widget _buildProfileImage() {
+    return Align(
+      alignment: const AlignmentDirectional(-1.00, 1.00),
+      child: Padding(
+        padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(50),
+          child: Image.network(
+            _managerProfilePictureUrl ?? '',
+            width: 80,
+            height: 80,
+            fit: BoxFit.cover,
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildUserInfo() {
+    return Align(
+      alignment: const AlignmentDirectional(0.00, 0.00),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          _buildUserInfoText(hostelName, managerName),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildUserInfoText(String title, String subtitle) {
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsetsDirectional.fromSTEB(40, 0, 0, 0),
+          child: Text(
+            title,
+            textAlign: TextAlign.start,
+            style: const TextStyle(
+              fontFamily: 'Outfit',
+              color: Colors.black,
+              fontSize: 35,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsetsDirectional.fromSTEB(25, 0, 0, 0),
+          child: Text(
+            subtitle,
+            style: const TextStyle(
+              fontFamily: 'Outfit',
+              fontSize: 30,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildBackButton() {
+    return Align(
+      alignment: const AlignmentDirectional(-0.91, -0.8),
+      child: IconButton(
+        onPressed: () {
+          Navigator.of(context).pop();
+        },
+        icon: const Icon(
+          Icons.arrow_back,
+          size: 24,
+          color: Colors.white,
+        ),
+      ),
+    );
+  }
+
+  Widget _buildStats() {
+    return Container(
+      width: double.infinity,
+      height: 106,
+      decoration: const BoxDecoration(
+        color: Colors.white,
+      ),
+      child: ListView(
+        padding: EdgeInsets.zero,
+        primary: false,
+        shrinkWrap: true,
+        scrollDirection: Axis.horizontal,
+        children: [
+          _buildStatsItem(Icons.bed, numberOfRooms.toString(), 'Rooms'),
+          _buildStatsItem(Icons.supervisor_account_rounded,
+              numberOfTenants.toString(), 'Tenants'),
+          _buildStatsItem(Icons.door_back_door,
+              numberOfRoomsOccupied.toString(), 'Occupied'),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildStatsItem(IconData icon, String value, String label) {
+    return Padding(
+      padding: const EdgeInsetsDirectional.fromSTEB(16, 12, 12, 12),
+      child: Container(
+        width: 130,
+        height: 100,
+        decoration: BoxDecoration(
+          color: Colors.grey[200],
+          boxShadow: const [
+            BoxShadow(
+              blurRadius: 4,
+              color: Color(0x34090F13),
+              offset: Offset(0, 2),
+            )
+          ],
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: Row(
+          children: [
+            Padding(
+              padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+              child: Icon(
+                icon,
+                color: const Color(0xFFF59B15),
+                size: 30,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsetsDirectional.fromSTEB(12, 12, 12, 12),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    value,
+                    style: const TextStyle(
+                      fontFamily: 'Plus Jakarta Sans',
+                      color: Colors.black,
+                      fontSize: 30,
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
+                  Text(
+                    label,
+                    style: const TextStyle(
+                      fontFamily: 'Plus Jakarta Sans',
+                      color: Colors.grey,
+                      fontSize: 15,
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildButton(String text, IconData icon, {Color? color}) {
+    return Align(
+      alignment: const AlignmentDirectional(0.00, 0.00),
+      child: Padding(
+        padding: const EdgeInsetsDirectional.fromSTEB(16, 10, 16, 10),
+        child: Container(
+          width: double.infinity,
+          height: 60,
+          decoration: BoxDecoration(
+            color: color ?? Colors.grey[200],
+            borderRadius: BorderRadius.circular(8),
+            border: Border.all(
+              color: Colors.white,
+              width: 2,
+            ),
+          ),
+          alignment: const AlignmentDirectional(0.00, 0.00),
+          child: Row(
+            children: [
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
+                child: Icon(
+                  icon,
+                  color: Colors.grey,
+                ),
+              ),
+              Expanded(
+                child: Text(
+                  text,
+                  style: const TextStyle(
+                    fontFamily: 'Outfit',
+                    fontSize: 15,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 12, 0),
+                child: Icon(
+                  Icons.chevron_right_rounded,
+                  size: 24,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+
+Edit profile actual
+
+// import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+// import 'dart:convert';
+// import 'package:flutter/material.dart';
+// import 'package:http/http.dart' as http;
+
+// class EditProfilePage extends StatefulWidget {
+//   final String accessToken;
+
+//   const EditProfilePage({Key? key, required this.accessToken})
+//       : super(key: key);
+
+//   @override
+//   _EditProfilePageState createState() => _EditProfilePageState();
+// }
+
+// class _EditProfilePageState extends State<EditProfilePage> {
+//   TextEditingController hostelNameController = TextEditingController();
+//   TextEditingController managerContactController = TextEditingController();
+//   TextEditingController hostelContactController = TextEditingController();
+//   TextEditingController mobileMoneyController = TextEditingController();
+//   TextEditingController startPriceController = TextEditingController();
+//   TextEditingController endPriceController = TextEditingController();
+//   TextEditingController mainWebsiteController = TextEditingController();
+//   TextEditingController locationController = TextEditingController();
+
+//   @override
+//   void initState() {
+//     super.initState();
+//     // Fetch data from API and populate the fields
+//     fetchAndPopulateData();
+//   }
+
+//   Future<void> fetchAndPopulateData() async {
+//     final url =
+//         'https://ethenatx.pythonanywhere.com/management/management-profile/';
+
+//     try {
+//       final response = await http.get(
+//         Uri.parse(url),
+//         headers: {'Authorization': 'Bearer ${widget.accessToken}'},
+//       );
+
+//       if (response.statusCode == 200) {
+//         final data = json.decode(response.body);
+//         // Get the price range
+//         String priceRange = data['price_range'];
+
+//         // Split the price range
+//         List<String> prices = priceRange.split('-');
+
+//         setState(() {
+//           hostelNameController.text = data['hostel_name'] ?? '';
+//           managerContactController.text = data['manager_contact'] ?? '';
+//           hostelContactController.text = data['hostel_contact'] ?? '';
+//           mobileMoneyController.text = data['mobile_money'] ?? '';
+//           // Set the start and end price controllers
+//           startPriceController.text = prices[0];
+//           endPriceController.text = prices[1];
+//           mainWebsiteController.text = data['main_website'];
+//           locationController.text = data['location'] ?? '';
+//         });
+//       } else {
+//         throw Exception('Failed to load data');
+//       }
+//     } catch (e) {
+//       print('Error fetching data: $e');
+//       // Handle the error appropriately
+//     }
+//   }
+
+//   Future<void> updateProfile() async {
+//     String priceRange =
+//         '${startPriceController.text}-${endPriceController.text}';
+//     final url =
+//         'https://ethenatx.pythonanywhere.com/management/management-profile/';
+//     try {
+//       final response = await http.put(
+//         Uri.parse(url),
+//         headers: {
+//           'Authorization': 'Bearer ${widget.accessToken}',
+//           'Content-Type': 'application/json',
+//         },
+//         body: json.encode({
+//           "hostel_name": hostelNameController.text,
+//           "manager_contact": managerContactController.text,
+//           "hostel_contact": hostelContactController.text,
+//           "mobile_money": mobileMoneyController.text,
+//           "price_range": priceRange,
+//           "main_website": mainWebsiteController.text,
+//           "location": locationController.text,
+//         }),
+//       );
+
+//       if (response.statusCode == 200) {
+//         // Profile updated successfully
+//         // You might want to navigate back or show a success message
+//       } else {
+//         throw Exception('Failed to update profile');
+//       }
+//     } catch (e) {
+//       print('Error updating profile: $e');
+//       // Handle the error appropriately
+//     }
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         elevation: 0,
+//         backgroundColor: Colors.white,
+//         leading: IconButton(
+//           icon: const Icon(Icons.arrow_back, color: Color(0xFFF59B15)),
+//           onPressed: () {
+//             Navigator.of(context).pop();
+//           },
+//         ),
+//         title: const Text(
+//           'Edit Profile',
+//           style: TextStyle(
+//             fontWeight: FontWeight.w600,
+//             color: Color(0xFFF59B15),
+//             fontSize: 25,
+//           ),
+//         ),
+//       ),
+//       body: Container(
+//         height: double.infinity,
+//         child: Column(
+//           children: [
+//             Expanded(
+//               child: SingleChildScrollView(
+//                 padding: const EdgeInsets.all(16),
+//                 child: Column(
+//                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//                   children: [
+//                     _buildTextField('Hostel Name', hostelNameController),
+//                     _buildTextField(
+//                         'Manager Contact', managerContactController),
+//                     _buildTextField('Hostel Contact', hostelContactController),
+//                     _buildTextField('Mobile Money', mobileMoneyController),
+//                     _buildPriceRangeFields(),
+//                     _buildTextField('Main Website', mainWebsiteController),
+//                     _buildTextField('Location', locationController),
+//                   ],
+//                 ),
+//               ),
+//             ),
+//             Padding(
+//               padding: const EdgeInsets.all(8.0),
+//               child: SizedBox(
+//                 width: double.infinity,
+//                 height: 35,
+//                 child: ElevatedButton(
+//                   onPressed: updateProfile,
+//                   child: Row(
+//                     mainAxisSize: MainAxisSize.min,
+//                     children: [
+//                       Text('Update Profile', style: TextStyle(fontSize: 16)),
+//                       SizedBox(width: 8),
+//                       FaIcon(FontAwesomeIcons.solidFloppyDisk, size: 18),
+//                     ],
+//                   ),
+//                 ),
+//               ),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+
+//   Widget _buildTextField(String label, TextEditingController controller) {
+//     return Padding(
+//       padding: const EdgeInsets.only(bottom: 16),
+//       child: TextField(
+//         controller: controller,
+//         decoration: InputDecoration(
+//           labelText: label,
+//         ),
+//       ),
+//     );
+//   }
+
+//   Widget _buildPriceRangeFields() {
+//     return Padding(
+//       padding: const EdgeInsets.only(bottom: 16),
+//       child: Row(
+//         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//         children: [
+//           Expanded(
+//             child: _buildTextField('Start Price', startPriceController),
+//           ),
+//           SizedBox(width: 16),
+//           Expanded(
+//             child: _buildTextField('End Price', endPriceController),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
+
+
+view Tenantsimport 'package:flutter/material.dart';
+
+class ViewTenants extends StatefulWidget {
+  const ViewTenants({Key? key}) : super(key: key);
+
+  @override
+  State<ViewTenants> createState() => _ViewTenantsState();
+}
+
+class _ViewTenantsState extends State<ViewTenants> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        centerTitle: true,
+        title: Text(
+          "View Tenants",
+          style: TextStyle(color: Colors.amber),
+        ),
+      ),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(5),
+                color: Color(0xffd2cfcf),
+              ),
+              height: 120,
+              width: double.infinity,
+              // padding: Padding(padding: EdgeInsets.all(8)),
+              child: Padding(
+                padding: const EdgeInsets.only(top: 5, left: 10, bottom: 5),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Text("John Doe",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        )),
+                    Text("Room No 6",
+                        style: TextStyle(
+                          fontSize: 20 * 0.6,
+                          // fontWeight: FontWeight.bold,
+                        )),
+                    Text("ID 00000",
+                        style: TextStyle(
+                          fontSize: 20 * 0.6,
+                          // fontWeight: FontWeight.bold,
+                        )),
+                    Text("Paid",
+                        style: TextStyle(
+                          fontSize: 20 * 0.6,
+                          // fontWeight: FontWeight.bold,
+                        )),
+                    Text("Checked in: False",
+                        style: TextStyle(
+                          fontSize: 20 * 0.6,
+                          // fontWeight: FontWeight.bold,
+                        )),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(5),
+                color: Color(0xffd2cfcf),
+              ),
+              height: 120,
+              width: double.infinity,
+              // padding: Padding(padding: EdgeInsets.all(8)),
+              child: Padding(
+                padding: const EdgeInsets.only(top: 5, left: 10, bottom: 5),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Text("John Doe",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        )),
+                    Text("Room No 6",
+                        style: TextStyle(
+                          fontSize: 20 * 0.6,
+                          // fontWeight: FontWeight.bold,
+                        )),
+                    Text("ID 00000",
+                        style: TextStyle(
+                          fontSize: 20 * 0.6,
+                          // fontWeight: FontWeight.bold,
+                        )),
+                    Text("Paid",
+                        style: TextStyle(
+                          fontSize: 20 * 0.6,
+                          // fontWeight: FontWeight.bold,
+                        )),
+                    Text("Checked in: False",
+                        style: TextStyle(
+                          fontSize: 20 * 0.6,
+                          // fontWeight: FontWeight.bold,
+                        )),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(5),
+                color: Color(0xffd2cfcf),
+              ),
+              height: 120,
+              width: double.infinity,
+              // padding: Padding(padding: EdgeInsets.all(8)),
+              child: Padding(
+                padding: const EdgeInsets.only(top: 5, left: 10, bottom: 5),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Text("John Doe",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        )),
+                    Text("Room No 6",
+                        style: TextStyle(
+                          fontSize: 20 * 0.6,
+                          // fontWeight: FontWeight.bold,
+                        )),
+                    Text("ID 00000",
+                        style: TextStyle(
+                          fontSize: 20 * 0.6,
+                          // fontWeight: FontWeight.bold,
+                        )),
+                    Text("Paid",
+                        style: TextStyle(
+                          fontSize: 20 * 0.6,
+                          // fontWeight: FontWeight.bold,
+                        )),
+                    Text("Checked in: False",
+                        style: TextStyle(
+                          fontSize: 20 * 0.6,
+                          // fontWeight: FontWeight.bold,
+                        )),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+
+splash
+// class SplashAndAuthenticate extends StatefulWidget {
+//   const SplashAndAuthenticate({Key? key}) : super(key: key);
+
+//   @override
+//   _SplashAndAuthenticateState createState() => _SplashAndAuthenticateState();
+// }
+
+// class _SplashAndAuthenticateState extends State<SplashAndAuthenticate> {
+//   AuthService authService = AuthService();
+//   @override
+//   void initState() {
+//     super.initState();
+//     // Start checking tokens in the background
+//     checkTokensAndNavigate();
+
+//     // Show the splash screen for a minimum of 3 seconds
+//     Future.delayed(const Duration(seconds: 3), () {
+//       // After 3 seconds, navigate to AuthenticateSolo1Widget if not already navigated
+//       if (!mounted) return; // Avoid calling setState on a disposed widget
+//       Navigator.pushReplacement(
+//         context,
+//         MaterialPageRoute(
+//           builder: (context) => const AuthenticateSolo1Widget(),
+//         ),
+//       );
+//     });
+//   }
+
+//   Future<void> checkTokensAndNavigate() async {
+//     final accessToken =
+//         await authService.secureStorage.read(key: 'access_token');
+//     final refreshToken =
+//         await authService.secureStorage.read(key: 'refresh_token');
+
+//     print('Stored Access Token: $accessToken');
+//     print('Stored Refresh Token: $refreshToken');
+
+//     if (accessToken != null && refreshToken != null) {
+//       // Tokens exist, attempt to refresh and navigate to home page
+//       await handleLoginOrRefresh();
+//       print('After Refresh - Access Token: ${authService.accessToken}');
+//       if (authService.accessToken != null) {
+//         // Successful navigation to home page
+//         navigateToHomePage();
+//       } else {
+//         // If refresh fails, show an error and offer a login option
+//         showSnackBar('Token refresh failed. Please log in again.');
+//       }
+//     }
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       width: MediaQuery.of(context).size.width,
+//       height: MediaQuery.of(context).size.height,
+//       decoration: const BoxDecoration(
+//         image: DecorationImage(
+//           fit: BoxFit.cover,
+//           image: AssetImage('assets/splash_screen.jpeg'),
+//         ),
+//       ),
+//       // child: Scaffold(
+//       //   body: Center(
+//       //     child: Image.asset(
+//       //         'assets/splash_screen.jpeg'), // Replace with your splash image
+//       //   ),
+//       // ),
+//     );
+//   }
+// }
+
+
+
+statusCode
+if (statisticsData.isNotEmpty)
+              _buildBarChart(
+                  'Number of Rooms', statisticsData['number_of_rooms']),
+            if (statisticsData.isNotEmpty)
+              _buildBarChart(
+                  'Number of Tenants', statisticsData['number_of_tenants']),
+            if (statisticsData.isNotEmpty)
+              _buildBarChart('Total Sales', statisticsData['total_sales']),
+            if (statisticsData.isNotEmpty)
+              _buildBarChart('Number of Rooms Occupied',
+                  statisticsData['number_rooms_occupied']),
+            if (statisticsData.isNotEmpty)
+
+              Widget _buildBarChart(String title, double? value) {
+    // Check if value is null, and if so, set it to 0
+    value ??= 0;
+
+    return Padding(
+      padding: EdgeInsets.only(bottom: 16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            title,
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
+          SizedBox(height: 10),
+          Container(
+            height: 300,
+            child: BarChart(
+              BarChartData(
+                alignment: BarChartAlignment.spaceAround,
+                maxY: value * 1.2,
+                barTouchData: BarTouchData(
+                  touchTooltipData: BarTouchTooltipData(
+                    tooltipBgColor: Colors.blueGrey,
+                    getTooltipItem: (group, groupIndex, rod, rodIndex) {
+                      // Check if rod is not null and rod.toY is not null
+                      if (rod != null && rod.toY != null) {
+                        return BarTooltipItem(
+                          rod.toY.toString(),
+                          TextStyle(color: Colors.yellow),
+                        );
+                      } else {
+                        return BarTooltipItem(
+                          "N/A",
+                          TextStyle(color: Colors.yellow),
+                        );
+                      }
+                    },
+                  ),
+                ),
+                titlesData: FlTitlesData(
+                  leftTitles: AxisTitles(),
+                  bottomTitles: AxisTitles(),
+                ),
+                borderData: FlBorderData(
+                  show: false,
+                ),
+                barGroups: [
+                  BarChartGroupData(
+                    x: 0,
+                    barRods: [
+                      BarChartRodData(
+                        toY: value,
+                        color: Colors.blue,
+                      ),
+                    ],
+                    showingTooltipIndicators: [0],
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+import 'dart:convert';
+import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'package:fl_chart/fl_chart.dart';
+
+class StatisticsPage extends StatefulWidget {
+  final String accessToken;
+
+  const StatisticsPage({Key? key, required this.accessToken}) : super(key: key);
+
+  @override
+  _StatisticsPageState createState() => _StatisticsPageState();
+}
+
+class _StatisticsPageState extends State<StatisticsPage> {
+  Map<String, dynamic> statisticsData = {};
+
+  @override
+  void initState() {
+    super.initState();
+    fetchStatistics();
+  }
+
+  Future<void> fetchStatistics() async {
+    final url =
+        'https://ethenatx.pythonanywhere.com/management/management-profile/';
+
+    try {
+      final response = await http.get(
+        Uri.parse(url),
+        headers: {'Authorization': 'Bearer ${widget.accessToken}'},
+      );
+
+      if (response.statusCode == 200) {
+        final data = json.decode(response.body);
+
+        setState(() {
+          statisticsData = data;
+        });
+      } else {
+        throw Exception('Failed to load statistics data');
+      }
+    } catch (e) {
+      print('Error fetching statistics data: $e');
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Statistics'),
+      ),
+      body: SingleChildScrollView(
+        padding: EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            _buildBarChart(),
+            SizedBox(height: 16),
+            _buildPieChart('Bed Space Distribution', {
+              '4 in a Room': statisticsData['number_of_4_in_a_room'],
+              '3 in a Room': statisticsData['number_of_3_in_a_room'],
+              '2 in a Room': statisticsData['number_of_2_in_a_room'],
+              '1 in a Room': statisticsData['number_of_1_in_a_room'],
+            }),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildBarChart() {
+    double tenantCount = statisticsData['number_of_tenants']?.toDouble() ?? 0;
+    double roomsOccupied =
+        statisticsData['number_rooms_occupied']?.toDouble() ?? 0;
+    double bedSpaceLeft =
+        statisticsData['total_bed_space_left']?.toDouble() ?? 0;
+
+    return Container(
+      height: 300,
+      child: BarChart(
+        BarChartData(
+          alignment: BarChartAlignment.spaceAround,
+          titlesData: FlTitlesData(
+            show: true,
+            bottomTitles: SideTitles(
+              rotateAngle: 45,
+              showTitles: true,
+              getTitles: (value) {
+                switch (value.toInt()) {
+                  case 0:
+                    return 'Number of Tenants';
+                  case 1:
+                    return 'Number of Rooms Occupied';
+                  case 2:
+                    return 'Total Bed Space Left';
+                  default:
+                    return '';
+                }
+              },
+            ),
+            leftTitles: SideTitles(
+              showTitles: true,
+              interval: 10,
+            ),
+          ),
+          borderData: FlBorderData(
+            show: false,
+          ),
+          barGroups: [
+            BarChartGroupData(
+              x: 0,
+              barRods: [
+                BarChartRodData(y: tenantCount, colors: [Colors.blue]),
+              ],
+            ),
+            BarChartGroupData(
+              x: 1,
+              barRods: [
+                BarChartRodData(y: roomsOccupied, colors: [Colors.green]),
+              ],
+            ),
+            BarChartGroupData(
+              x: 2,
+              barRods: [
+                BarChartRodData(y: bedSpaceLeft, colors: [Colors.orange]),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildPieChart(String title, Map<String, dynamic> data) {
+    return Padding(
+      padding: EdgeInsets.only(bottom: 16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            title,
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
+          SizedBox(height: 10),
+          Container(
+            height: 300,
+            child: PieChart(
+              PieChartData(
+                pieTouchData: PieTouchData(
+                  touchCallback: (FlTouchEvent event, pieTouchResponse) {
+                    // Handle touch events if needed
+                  },
+                ),
+                borderData: FlBorderData(
+                  show: false,
+                ),
+                sectionsSpace: 0,
+                centerSpaceRadius: 30,
+                sections: _getModifiedPieChartSections(data),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  List<PieChartSectionData> _getModifiedPieChartSections(
+      Map<String, dynamic> data) {
+    List<PieChartSectionData> sections = [];
+    final List<Color> colors = [
+      Colors.blue,
+      Colors.yellow,
+      Colors.purple,
+      Colors.green,
+    ];
+
+    int i = 0;
+    data.forEach((key, value) {
+      sections.add(
+        PieChartSectionData(
+          color: colors[i],
+          value: value.toDouble(),
+          title: '${value.toString()}',
+          radius: 40,
+          titleStyle: TextStyle(
+            fontSize: 16.0,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
+        ),
+      );
+      i++;
+    });
+
+    return sections;
+  }
+}

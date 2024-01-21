@@ -1,0 +1,60 @@
+name: bookmie
+description: A new Flutter project.
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.19.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  provider: ^6.0.5
+  http: ^1.1.0
+  qr_code_scanner: ^1.0.1
+  google_fonts: ^6.1.0
+  font_awesome_flutter: ^10.4.0
+  flutter_secure_storage: ^9.0.0
+  cached_network_image: ^3.3.0
+  fl_chart: ^0.66.0
+  percent_indicator: ^4.0.1
+
+  # image_picker: ^0.8.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+  flutter_launcher_icons: ^0.13.1
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/icon.jpg"
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/homepageimg.jpg
+    - assets/details.jpg
+    - assets/price.jpg
+    - assets/verify.jpg
+    - assets/view.jpg
+    - assets/coverphoto.jpeg
+    - assets/unknown_profile.jpg
+    - assets/Error.gif
+    - assets/Success.gif
+    - assets/Animation.gif
+    - assets/splash_screen.jpeg
+
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
